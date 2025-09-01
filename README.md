@@ -71,13 +71,13 @@ L'app comunica con il *backend* tramite API RESTful sicure. Il sistema di notifi
 ## Repository dei Componenti
 
 ### Componenti del Sistema:
-- *PositionService*: [Repository PositionService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-PositionService-MandorinoSettimo)
-- *DeliveryService*: [Repository DeliveryService](https://github.com/tuo-nome/DeliveryService)
-- *VehicleRoutingService*: [Repository VehicleRoutingService](https://github.com/tuo-nome/VehicleRoutingService)
-- *NotificationService*: [Repository NotificationService](https://github.com/tuo-nome/NotificationService)
+- PositionService: [Repository PositionService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-PositionService-MandorinoSettimo)
+- DeliveryService: [Repository DeliveryService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-DeliveryService-MandorinoSettimo)
+- VehicleRoutingService: [Repository VehicleRoutingService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-VehicleRoutingProblem-MandorinoSettimo)
+- NotificationService: [Repository NotificationService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-NotificationService-MandorinoSettimo)
 
 ### Repository Frontend:
-- *Frontend*: [Repository Frontend](https://github.com/tuo-nome/Frontend)
+- *Frontend*: [Repository Frontend](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-Frontend-MandorinoSettimo)
 
 ---
 
