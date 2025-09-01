@@ -1,0 +1,9 @@
+name,lat,lon,demand,tw_open,tw_close,type,pair_id
+Milano,45.4642,9.1900,18,0,72000,pickup,1
+Torino,45.0703,7.6869,-18,0,86400,delivery,1
+Genova,44.4056,8.9463,15,0,86400,pickup,2
+Verona,45.4384,10.9916,-15,0,86400,delivery,2
+Bologna,44.4949,11.3426,0,0,86400,,
+Firenze,43.7696,11.2558,0,0,86400,,3
+Roma,41.9028,12.4964,0,0,86400,,3
+Napoli,40.8518,14.2681,0,0,86400,,3

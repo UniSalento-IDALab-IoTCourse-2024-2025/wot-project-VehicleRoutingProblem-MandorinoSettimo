@@ -1,0 +1,10 @@
+from_index,to_index,from_label,to_label,distance_m,time_s
+4,4,Depot,Depot,0.0,0
+4,4,Depot,Depot,0.0,0
+4,4,Depot,Depot,0.0,0
+4,4,Depot,Depot,0.0,0
+4,1,Depot,Pickup,867372.06,28866
+1,2,Pickup,Delivery,188844.305,7107
+2,0,Delivery,Pickup,0.0,0
+0,3,Pickup,Delivery,1053064.331,35211
+3,4,Delivery,Depot,23314.551,1558
