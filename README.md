@@ -106,5 +106,5 @@ Il **VehicleRoutingService** è il cuore dell'ottimizzazione del percorso di **D
 
 ### Tecnologie utilizzate:
 - **OR-Tools**: Libreria di Google per la risoluzione del **CVRPTW** e ottimizzazione delle rotte.
-- **Spring Boot** per l'implementazione del servizio.
-- **Database**: Utilizza MongoDB o PostgreSQL per memorizzare i dati relativi alle rotte e agli ordini.
+- **Python** per l'implementazione del servizio.
+- **Database**: Utilizza MongoDB per memorizzare i dati relativi alle rotte e agli ordini.
