@@ -1,93 +1,97 @@
-# VehicleRoutingProblem
+# DeliveryGo
+
+<div style="text-align: center;">
+  <img src="./app-icon.png" alt="Icona dell'applicazione" width="250"/>
+</div>
+
+## Descrizione del progetto
+
+*DeliveryGo* è un sistema avanzato di logistica intelligente che ottimizza la gestione delle consegne in tempo reale. Progettato per migliorare l'efficienza dei camionisti e ridurre i tempi di consegna, *DeliveryGo* integra l'ottimizzazione delle rotte, il tracciamento in tempo reale, e la gestione delle anomalie.
+
+Il sistema è composto da un'applicazione mobile per i camionisti, un backend basato su microservizi, e un algoritmo di ottimizzazione che utilizza modelli predittivi per gestire le rotte, la capacità dei veicoli, le finestre temporali di consegna e la disponibilità dei camionisti.
+
+### Funzionalità principali:
+- *Ottimizzazione delle rotte*: Calcolo delle migliori rotte in base a vincoli di tempo, capacità del veicolo e disponibilità dei camionisti.
+- *Gestione delle anomalie*: Rilevamento e gestione di situazioni anomale, come guasti ai veicoli o deviazioni dalla rotta.
+- *Tracciamento GPS in tempo reale*: Monitoraggio continuo della posizione dei veicoli tramite GPS, con aggiornamenti sulla mappa.
+- *Gestione ordini*: Assegnazione da parte dell'admin degli ordini ai camionisti e gestione delle loro attività (accettazione e completamento delle tratte).
+
+### Obiettivi:
+- *Ottimizzare i percorsi* per permettere all'admin di gestire gli ordini in maniera ottimale.
+- *Fornire notifiche in tempo reale* ai camionisti e agli admin su eventi critici come guasti o deviazioni, o avvisare l'utente di un'assegnazione.
+- *Gestione anomalie* per permettere all'admin di intervenire subito in caso di guasto.
+
+---
+
+## Architettura del Sistema
+
+Il sistema è progettato con un'architettura *a microservizi*, che consente una gestione scalabile e modulare. I vari componenti sono sviluppati come servizi indipendenti che comunicano tramite API RESTful.
+
+<div style="text-align: center;">
+  <img src="./architettura (1).png" alt="Architettura utilizzata" width="1000"/>
+</div>
+
+### Componenti principali:
+
+1. *PositionService*: Gestisce tutto ciò che riguarda l'utente, incluse le informazioni di registrazione, aggiornamento del profilo e il tracciamento GPS.
+2. *DeliveryService*: Si occupa della gestione degli ordini e delle rotte, inclusa l'assegnazione dei veicoli agli ordini e l'ottimizzazione del percorso.
+3. *VehicleRoutingService*: Responsabile del calcolo delle rotte ottimizzate per i veicoli, utilizzando algoritmi come OR-Tools per risolvere il CVRPTW (Capacitated Vehicle Routing Problem with Time Windows).
+4. *NotificationService*: Gestisce l'invio di notifiche push ai camionisti e agli admin, incluse le notifiche di aggiornamento delle rotte e segnalazione di anomalie.
+
+### Tecnologia utilizzata:
+- *Backend*: Java (Spring Boot) per la logica di business e il supporto delle API RESTful.
+- *Frontend*: React Native per l'applicazione mobile dei camionisti.
+- *Database*: MongoDB per la gestione dei dati relativi agli ordini e ai veicoli.
+- *Ottimizzazione rotte*: OR-Tools, GraphHopper per il calcolo delle rotte.
+- *Tracciamento GPS*: MQTT per l'invio della posizione in tempo reale.
+
+---
 
 
+## Frontend
 
-## Getting started
+L'app mobile, sviluppata con *React Native*, consente ai camionisti di:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- Gestire il proprio profilo.
+- Visualizzare la rotta ottimizzata.
+- Ricevere notifiche push in caso di anomalie.
+- Aggiornare la propria posizione in tempo reale.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Mentre consente agli admin di:
 
-## Add your files
+- Creare e gestire veicoli, ordini e rotte.
+- Assegnare tratte ai camionisti.
+- Visualizzare lo stato di ordini e veicoli.
+- Intervenire, qualora fosse presente un'anomalia, in maniera immediata.
+  
+L'app comunica con il *backend* tramite API RESTful sicure. Il sistema di notifica è integrato con *Firebase Cloud Messaging (FCM)* per inviare alert sui cambiamenti in tempo reale.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+---
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/logistics1615527/vehicleroutingproblem.git
-git branch -M main
-git push -uf origin main
-```
+## Repository dei Componenti
 
-## Integrate with your tools
+### Componenti del Sistema:
+- *PositionService*: [Repository PositionService](https://github.com/UniSalento-IDALab-IoTCourse-2024-2025/wot-project-PositionService-MandorinoSettimo)
+- *DeliveryService*: [Repository DeliveryService](https://github.com/tuo-nome/DeliveryService)
+- *VehicleRoutingService*: [Repository VehicleRoutingService](https://github.com/tuo-nome/VehicleRoutingService)
+- *NotificationService*: [Repository NotificationService](https://github.com/tuo-nome/NotificationService)
 
-- [ ] [Set up project integrations](https://gitlab.com/logistics1615527/vehicleroutingproblem/-/settings/integrations)
+### Repository Frontend:
+- *Frontend*: [Repository Frontend](https://github.com/tuo-nome/Frontend)
 
-## Collaborate with your team
+---
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+## Approfondimento su **VehicleRoutingService**
 
-## Test and Deploy
+Il **VehicleRoutingService** è il cuore dell'ottimizzazione del percorso di **DeliveryGo**. Utilizza algoritmi avanzati, come **OR-Tools**, per calcolare le rotte ottimali tenendo conto di vincoli come la capacità dei veicoli, le finestre temporali di consegna e la disponibilità dei camionisti.
 
-Use the built-in continuous integration in GitLab.
+### Funzionalità principali di **VehicleRoutingService**:
+- **Ottimizzazione delle rotte**: Calcola la rotta migliore per ogni veicolo, tenendo conto delle finestre temporali, della capacità del veicolo e di altri vincoli.
+- **Gestione delle finestre temporali**: Assicura che le consegne vengano effettuate rispettando i vincoli temporali.
+- **Risoluzione del CVRPTW**: Utilizza algoritmi come **OR-Tools** per risolvere il problema del **Capacitated Vehicle Routing Problem with Time Windows (CVRPTW)**.
+- **Integrazione con DeliveryService**: Comunica con il **DeliveryService** per ricevere gli ordini da ottimizzare e per restituire le rotte calcolate.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### Tecnologie utilizzate:
+- **OR-Tools**: Libreria di Google per la risoluzione del **CVRPTW** e ottimizzazione delle rotte.
+- **Spring Boot** per l'implementazione del servizio.
+- **Database**: Utilizza MongoDB o PostgreSQL per memorizzare i dati relativi alle rotte e agli ordini.
